@@ -1,9 +1,7 @@
 module AMTD
   module Endpoints
 
-    class Logout
-      VERSION = '2.91'
-
+    class Logout < BaseEndpoint
       attr_reader :adapter, :response
 
       def initialize adapter
@@ -30,11 +28,7 @@ module AMTD
       end
 
       def url
-        AMTD.config.base_path + endpoint_path
-      end
-
-      def headers
-        {}
+        base_path + endpoint_path
       end
 
       def payload

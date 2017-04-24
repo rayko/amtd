@@ -1,9 +1,7 @@
 module AMTD
   module Endpoints
 
-    class Login
-      VERSION = '2.91'
-
+    class Login < BaseEndpoint
       attr_reader :adapter, :response
 
       def initialize adapter, params
@@ -34,17 +32,17 @@ module AMTD
       end
 
       def url
-        AMTD.config.base_path + endpoint_path
+        base_path + endpoint_path
       end
 
       def headers
-        {
+        default_headers.merge{
           'Content-Type' => 'application/x-www-form-urlencoded'
         }
       end
 
       def payload
-        {:userid => @user_id, :password => @passowrd, :source => AMTD.config.source, :version => VERSION}
+        {:userid => @user_id, :password => @passowrd, :source => AMTD.config.source}
       end
     end
 
