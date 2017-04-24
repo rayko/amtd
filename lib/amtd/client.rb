@@ -10,5 +10,10 @@ module AMTD
       request = Endpoints::Login.new @adapter, {:user_id => user_id, :password => password}
       request.execute!
     end
+
+    def logout
+      request = Endpoints::Logout.new @adapter
+      request.execute!
+    end
   end
 end

@@ -5,6 +5,7 @@ require "amtd/client"
 require "amtd/xml_parser"
 
 require "amtd/endpoints/login"
+require "amtd/endpoints/logout"
 
 require "httparty"
 require "nokogiri"
