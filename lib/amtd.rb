@@ -1,5 +1,13 @@
 require "amtd/version"
 require "amtd/configuration"
+require "amtd/adapter"
+require "amtd/client"
+require "amtd/xml_parser"
+
+require "amtd/endpoints/login"
+
+require "httparty"
+require "nokogiri"
 
 module AMTD
   class << self

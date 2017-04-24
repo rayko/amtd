@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo 'AMTD Development console'
+echo''
+echo 'Files will be automatically loaded.'
+echo 'Configure the gem before anything.'
+echo ''
+irb -I ./lib/ -r amtd
+echo 'Bye'

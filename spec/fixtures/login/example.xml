@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<amtd>
+  <result>OK</result>
+  <xml-log-in>
+    <session-id>OK</session-id>
+    <user-id>joeabandon13</user-id>
+    <cdi>A000000000001111</cdi>
+    <timeout>55</timeout>
+    <login-time> 2009-03-05 14:28:29 EST </login-time>
+    <associated-account-id>392485381</associated-account-id>
+    <nyse-quotes>realtime</nyse-quotes>
+    <nasdaq-quotes>realtime</nasdaq-quotes>
+    <opra-quotes>realtime</opra-quotes>
+    <amex-quotes>realtime</amex-quotes>
+    <exchange-status>non-professional</exchange-status>
+    <accounts>
+      <account>
+        <account-id>123456789</account-id>
+        <display-name>Joe Abandon</display-name>
+        <cdi>A0000000100001111</cdi>
+        <description>Joe Abandon Main Account</description>
+        <associated-account>true</associated-account>
+        <company>AMER</company>
+        <segment>UAMER</segment>
+        <unified>true</unified>
+        <preferences>
+          <express-trading>false</express-trading>
+          <option-direct-routing>true</option-direct-routing>
+          <stock-direct-routing>true</stock-direct-routing>
+          <default-stock-action>BUY</default-stock-action>
+          <default-stock-order-type>LIMIT</default-stock-order-type>
+          <default-stock-quantity>100</default-stock-quantity>
+          <default-stock-expiration>DAY</default-stock-expiration>
+          <default-stock-special-instructions>NONE</default-stock-special-instructions>
+          <default-stock-routing>AUTO</default-stock-routing>
+          <default-stock-display-size></default-stock-display-size>
+          <stock-tax-lot-method>fifo</stock-tax-lot-method>
+          <option-tax-lot-method>lifo</option-tax-lot-method>
+          <mutual-fund-tax-lot-method>None</mutual-fund-tax-lot-method>
+          <default-advanced-tool-launch>N</default-advanced-tool-launch>
+        </preferences>
+        <authorizations>
+          <apex>true</apex>
+          <level2>true</level2>
+          <stock-trading>true</stock-trading>
+          <margin-trading>true</margin-trading>
+          <streaming-news>true</streaming-news>
+          <option-trading>long</option-trading>
+          <streamer>true</streamer>
+          <advanced-margin>true</advanced-margin>
+        </authorizations>
+      </account>
+      <account>
+        <account-id>123456789</account-id>
+        <display-name>Joe Abandon2</display-name>
+        <cdi>A0000000100001111</cdi>
+        <description>Jane Abandon Account</description>
+        <associated-account>false</associated-account>
+        <company>AMER</company>
+        <segment>UAMER</segment>
+        <unified>true</unified>
+        <preferences>
+          <express-trading>true</express-trading>
+          <option-direct-routing>true</option-direct-routing>
+          <stock-direct-routing>true</stock-direct-routing>
+          <default-stock-action>SELL</default-stock-action>
+          <default-stock-order-type>MARKET</default-stock-order-type>
+          <default-stock-quantity>100</default-stock-quantity>
+          <default-stock-expiration>DAY</default-stock-expiration>
+          <default-stock-special-instructions>NONE</default-stock-special-instructions>
+          <default-stock-routing>AUTO</default-stock-routing>
+          <default-stock-display-size></default-stock-display-size>
+          <stock-tax-lot-method>fifo</stock-tax-lot-method>
+          <option-tax-lot-method>lifo</option-tax-lot-method>
+          <mutual-fund-tax-lot-method>None</mutual-fund-tax-lot-method>
+          <default-advanced-tool-launch>N</default-advanced-tool-launch>
+        </preferences>
+        <authorizations>
+          <apex>true</apex>
+          <level2>true</level2>
+          <stock-trading>true</stock-trading>
+          <margin-trading>true</margin-trading>
+          <streaming-news>true</streaming-news>
+          <option-trading>long</option-trading>
+          <streamer>true</streamer>
+          <advanced-margin>true</advanced-margin>
+        </authorizations>
+      </account>
+    </accounts>
+  </xml-log-in>
+</amtd>

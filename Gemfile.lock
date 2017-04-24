@@ -4,6 +4,7 @@ PATH
     amtd (0.0.0)
       addressable
       httparty
+      nokogiri
       yajl-ruby
 
 GEM
@@ -18,7 +19,10 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     method_source (0.8.2)
+    mini_portile2 (2.1.0)
     multi_xml (0.6.0)
+    nokogiri (1.7.1)
+      mini_portile2 (~> 2.1.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)

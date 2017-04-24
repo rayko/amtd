@@ -5,10 +5,8 @@ describe AMTD::Configuration do
     it 'has the default values' do
       config = AMTD::Configuration.new
 
-      expect(config.source).to eq(nil)
-      expect(config.version).to eq(nil)
-      expect(config.host).to eq(nil)
-      expect(config.path).to eq(nil)
+      expect(Proc.new{config.source}).not_to raise_error
+      expect(Proc.new{config.base_path}).not_to raise_error
     end
   end
 
