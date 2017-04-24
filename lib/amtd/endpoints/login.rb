@@ -36,9 +36,7 @@ module AMTD
       end
 
       def headers
-        default_headers.merge{
-          'Content-Type' => 'application/x-www-form-urlencoded'
-        }
+        default_headers.merge({'Content-Type' => 'application/x-www-form-urlencoded'})
       end
 
       def payload

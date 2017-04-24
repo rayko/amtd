@@ -20,9 +20,9 @@ module AMTD
     def convert_to_hash result, element
       element.children.each do |child|
         if child.children.any? && !(child.children.size == 1 && child.children.first.class == Nokogiri::XML::Text)
-          result[child.name] = convert_to_hash({}, child)
+          result[child.name.to_sym] = convert_to_hash({}, child)
         else
-          result[child.name] = child.content
+          result[child.name.to_sym] = child.content
         end
       end
       return result

@@ -4,8 +4,10 @@ require "amtd/adapter"
 require "amtd/client"
 require "amtd/xml_parser"
 
+require "amtd/endpoints/base_endpoint"
 require "amtd/endpoints/login"
 require "amtd/endpoints/logout"
+require "amtd/endpoints/keep_alive"
 
 require "httparty"
 require "nokogiri"

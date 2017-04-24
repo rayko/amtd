@@ -15,5 +15,10 @@ module AMTD
       request = Endpoints::Logout.new @adapter
       request.execute!
     end
+
+    def keep_alive
+      request = Endpoints::KeepAlive.new @adapter
+      request.execute!
+    end
   end
 end

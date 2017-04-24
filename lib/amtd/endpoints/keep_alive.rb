@@ -1,7 +1,7 @@
 module AMTD
   module Endpoints
 
-    class Logout < BaseEndpoint
+    class KeepAlive < BaseEndpoint
       attr_reader :adapter, :response
 
       def initialize adapter
@@ -16,7 +16,7 @@ module AMTD
 
       private
       def handle_response data
-        XMLParser.new(data).to_h
+        {:result => data}
       end
 
       def validate_params!
@@ -24,7 +24,7 @@ module AMTD
       end
       
       def endpoint_path
-        '/100/LogOut'
+        '/KeepAlive'
       end
 
       def url
