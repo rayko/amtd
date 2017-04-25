@@ -2,15 +2,15 @@ module AMTD
   module Endpoints
 
     class Login < BaseEndpoint
-      attr_reader :adapter, :response
+      attr_reader :adapter, :response, :request_parameters
 
       def initialize adapter, params
         @adapter = adapter
-        validate_params!(params)
+        @request_parameters = validate_params!(params)
       end
       
       def execute!
-        result = @adapter.post :url => url, :headers => headers, :body => endpoint_parameters.merge({:version => version})
+        result = @adapter.post :url => url, :headers => headers, :body => @request_parameters.merge({:version => version})
         handle_response(result)
       end
 
