@@ -1,5 +1,6 @@
 require 'amtd'
 require 'pry'
+require 'byebug'
 require 'timecop'
 
 def configure_gem!

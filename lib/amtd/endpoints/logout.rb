@@ -15,8 +15,13 @@ module AMTD
       end
 
       private
+      def required_params
+        [:source]
+      end
+
       def handle_response data
-        XMLParser.new(data).to_h
+        @response = XMLParser.new(data).to_h
+        return @response
       end
 
       def endpoint_path
