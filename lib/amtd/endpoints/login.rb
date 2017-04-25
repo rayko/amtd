@@ -6,44 +6,36 @@ module AMTD
 
       def initialize adapter, params
         @adapter = adapter
-        @user_id = params.delete(:user_id)
-        @password = params.delete(:password)
-        validate_params!
+        validate_params!(params)
       end
       
       def execute!
-        result = @adapter.post :url => url, :headers => headers, :body => payload
+        result = @adapter.post :url => url, :headers => headers, :body => endpoint_parameters.merge({:version => version})
         handle_response(result)
       end
 
       private
+      def required_params
+        [:source, :user_id, :password]
+      end
+
       def handle_response data
         @response = XMLParser.new(data).to_h
-        raise Errors::Login::LoginFailed if @response[:result] == 'FAIL' && @response[:error] == 'Login Failed'
-        raise Errors::Login::Unauthorized if @response[:result] == 'FAIL'
+        raise Errors::Login::LoginFailed if error? && @response[:error] == 'Login Failed'
+        raise Errors::Login::Unauthorized if error?
         return @response
       end
 
-      def validate_params!
-        raise 'MissingUserId' if @user_id.nil? || @user_id == ''
-        raise 'MissingPassword' if @password.nil? || @password == ''
-        raise 'MissingSource' if AMTD.config.source.nil? || AMTD.config.source == ''
+      def error?
+        @response[:result] == 'FAIL'
       end
-      
+
       def endpoint_path
         '/300/LogIn'
       end
 
-      def url
-        base_path + endpoint_path
-      end
-
       def headers
         default_headers.merge({'Content-Type' => 'application/x-www-form-urlencoded'})
-      end
-
-      def payload
-        {:userid => @user_id, :password => @passowrd, :source => AMTD.config.source}
       end
     end
 

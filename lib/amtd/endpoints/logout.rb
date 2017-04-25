@@ -4,13 +4,13 @@ module AMTD
     class Logout < BaseEndpoint
       attr_reader :adapter, :response
 
-      def initialize adapter
+      def initialize adapter, params
         @adapter = adapter
-        validate_params!
+        validate_params!(params)
       end
       
       def execute!
-        result = @adapter.post :url => url, :headers => default_headers, :body => payload
+        result = @adapter.post :url => url, :headers => default_headers, :body => endpoint_parameters
         handle_response(result)
       end
 
@@ -19,20 +19,8 @@ module AMTD
         XMLParser.new(data).to_h
       end
 
-      def validate_params!
-        raise 'MissingSource' if AMTD.config.source.nil? || AMTD.config.source == ''
-      end
-      
       def endpoint_path
         '/100/LogOut'
-      end
-
-      def url
-        base_path + endpoint_path
-      end
-
-      def payload
-        {:source => AMTD.config.source}
       end
     end
 

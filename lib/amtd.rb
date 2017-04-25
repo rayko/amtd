@@ -9,6 +9,7 @@ require "amtd/endpoints/base_endpoint"
 require "amtd/endpoints/login"
 require "amtd/endpoints/logout"
 require "amtd/endpoints/keep_alive"
+require "amtd/endpoints/streamer_info"
 
 require "httparty"
 require "nokogiri"
@@ -16,7 +17,6 @@ require "nokogiri"
 module AMTD
   class << self
     attr_accessor :configuration
-    alias config configuration
 
     def configure
       yield(configuration)
@@ -25,6 +25,10 @@ module AMTD
 
     def configuration
       @configuration ||= Configuration.new
+    end
+
+    def config
+      configuration
     end
   end
 end

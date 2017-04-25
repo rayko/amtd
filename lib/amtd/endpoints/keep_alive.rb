@@ -4,36 +4,29 @@ module AMTD
     class KeepAlive < BaseEndpoint
       attr_reader :adapter, :response
 
-      def initialize adapter
+      def initialize adapter, params
         @adapter = adapter
-        validate_params!
+        validate_params!(params)
       end
       
       def execute!
-        result = @adapter.post :url => url, :headers => default_headers, :body => payload
+        result = @adapter.post :url => url, :headers => default_headers, :body => endpoint_parameters
         handle_response(result)
       end
 
       private
+      def required_params
+        [:source]
+      end
+
       def handle_response data
         @response = {:result => data}
         raise Errors::KeepAlive::InvalidSession if @response[:result] == 'InvalidSession'
+        return @response
       end
 
-      def validate_params!
-        raise 'MissingSource' if AMTD.config.source.nil? || AMTD.config.source == ''
-      end
-      
       def endpoint_path
         '/KeepAlive'
-      end
-
-      def url
-        base_path + endpoint_path
-      end
-
-      def payload
-        {:source => AMTD.config.source}
       end
     end
 
