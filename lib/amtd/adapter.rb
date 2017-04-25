@@ -3,7 +3,7 @@ module AMTD
 
     def get params
       url = params.delete(:url)
-      response = HTTParty.get params url, params.merge(default_params)
+      response = HTTParty.get url, params.merge(default_params)
       handle_response(response)
     end
 
@@ -15,13 +15,13 @@ module AMTD
 
     private
     def handle_response response
-      return response.body if response.code == 200
-      # TODO Better error
-      raise 'AdapterError'
+      raise Errors::Adapter::RequestError.new(response.code, response.request.http_method, response.code) unless response.code == 200
+      return response.body
     end
 
     def default_params
       {:timeout => AMTD.config.request_timeout}
     end
+
   end
 end

@@ -16,7 +16,8 @@ module AMTD
 
       private
       def handle_response data
-        {:result => data}
+        @response = {:result => data}
+        raise Errors::KeepAlive::InvalidSession if @response[:result] == 'InvalidSession'
       end
 
       def validate_params!

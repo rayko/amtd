@@ -3,6 +3,7 @@ require "amtd/configuration"
 require "amtd/adapter"
 require "amtd/client"
 require "amtd/xml_parser"
+require "amtd/errors"
 
 require "amtd/endpoints/base_endpoint"
 require "amtd/endpoints/login"

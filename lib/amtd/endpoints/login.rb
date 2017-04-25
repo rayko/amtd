@@ -18,7 +18,10 @@ module AMTD
 
       private
       def handle_response data
-        XMLParser.new(data).to_h
+        @response = XMLParser.new(data).to_h
+        raise Errors::Login::LoginFailed if @response[:result] == 'FAIL' && @response[:error] == 'Login Failed'
+        raise Errors::Login::Unauthorized if @response[:result] == 'FAIL'
+        return @response
       end
 
       def validate_params!
