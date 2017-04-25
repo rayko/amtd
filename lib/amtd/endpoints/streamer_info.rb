@@ -17,7 +17,7 @@ module AMTD
       def handle_response data
         @response = XMLParser.new(data).to_h
         raise Errors::StreamerInfo::NotAllowed if error? && @response[:error] == 'NS'
-        raise Errors::StreamerInfo::InvalidSession if error? && @response[:error] == 'Invalid Session'
+        raise Errors::StreamerInfo::InvalidSession if error? && @response[:error] == 'Invalid Session.'
         return @response
       end
 

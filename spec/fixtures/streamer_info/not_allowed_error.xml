@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<amtd>
+  <result>FAIL</result>
+  <error>NS</error>
+  <streamer-info>
+    <error-msg> User is not allowed to access Streamer. </error-msg>
+  </streamer-info>
+</amtd>

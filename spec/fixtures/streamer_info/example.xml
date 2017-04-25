@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<amtd>
+  <result>OK</result>
+  <streamer-info>
+    <streamer-url>ameritrade02.streamer.com</streamer-url>
+    <token>1223749a1518c56c3b40c92123602a54a4d9ba2d</token>
+    <timestamp>1170615023913</timestamp>
+    <cd-domain-id>A000000018311352</cd-domain-id>
+    <usergroup>ACCT</usergroup>
+    <access-level>ACCT</access-level>
+    <acl>DRESGKMANSOLFNQ2QSTETFTOTTUAUR</acl>
+    <app-id>QT</app-id>
+    <authorized>Y</authorized>
+    <error-msg></error-msg>
+  </streamer-info>
+</amtd>
