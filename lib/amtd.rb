@@ -13,6 +13,7 @@ require "amtd/endpoints/streamer_info"
 
 require "httparty"
 require "nokogiri"
+require "nori"
 
 module AMTD
   class << self

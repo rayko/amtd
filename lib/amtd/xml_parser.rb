@@ -1,14 +1,14 @@
 module AMTD
   class XMLParser
-    attr_reader :data, :document
+    attr_reader :data, :parsed
     
     def initialize data
       @data = clean_data(data)
-      @document = Nokogiri::XML(@data)
     end
 
     def to_h
-      convert_to_hash({}, @document.children.first)
+      @parsed ||= Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym }).parse(@data)
+      @parsed[:amtd]
     end
 
     private
@@ -17,16 +17,5 @@ module AMTD
       cleaned.gsub(/>\s+</, "><")
     end
 
-    def convert_to_hash result, element
-      element.children.each do |child|
-        if child.children.any? && !(child.children.size == 1 && child.children.first.class == Nokogiri::XML::Text)
-          result[child.name.to_sym] = convert_to_hash({}, child)
-        else
-          result[child.name.to_sym] = child.content
-        end
-      end
-      return result
-    end
   end
-
 end

@@ -10,11 +10,6 @@ describe AMTD::XMLParser do
       expect(Proc.new{AMTD::XMLParser.new(@data)})
     end
 
-    it 'builds a Nokogiri object' do
-      object = AMTD::XMLParser.new(@data)
-      expect(object.document.class).to eq(Nokogiri::XML::Document)
-    end
-
     it 'cleans up input text' do
       expected = @data.gsub("\n", "").gsub(/>\s+</, "><")
       object = AMTD::XMLParser.new(@data)
