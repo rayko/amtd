@@ -8,7 +8,7 @@ describe AMTD::Endpoints::Login do
 
   describe '#execute!' do
     before do
-      @params = {:user_id => '123', :password => 'asd', :source => 'test'}
+      @params = {:userid => '123', :password => 'asd', :source => 'test'}
       @endpoint = AMTD::Endpoints::Login.new(@adapter, @params)
     end
 
@@ -42,7 +42,7 @@ describe AMTD::Endpoints::Login do
     end
 
     it 'does not raise error if all in place' do
-      params = {:user_id => '123', :password => 'qwe', :source => 'asd'}
+      params = {:userid => '123', :password => 'qwe', :source => 'asd'}
       expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).not_to raise_error
     end
 
@@ -50,27 +50,27 @@ describe AMTD::Endpoints::Login do
       it 'raises error if user_id is missing' do
         params = {:password => 'qwe', :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => '', :password => 'qwe', :source => 'asd'}
+        params = {:userid => '', :password => 'qwe', :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => nil, :password => 'qwe', :source => 'asd'}
+        params = {:userid => nil, :password => 'qwe', :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
       end
 
       it 'raises error if password is missing' do
-        params = {:user_id => 'qwe', :source => 'asd'}
+        params = {:userid => 'qwe', :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => 'asd', :password => '', :source => 'asd'}
+        params = {:userid => 'asd', :password => '', :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => 'asd', :password => nil, :source => 'asd'}
+        params = {:userid => 'asd', :password => nil, :source => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
       end
 
       it 'raises error if source is missing' do
         params = {:password => 'qwe', :user_id => 'asd'}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => '', :password => 'qwe', :source => ''}
+        params = {:userid => '', :password => 'qwe', :source => ''}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
-        params = {:user_id => nil, :password => 'qwe', :source => nil}
+        params = {:userid => nil, :password => 'qwe', :source => nil}
         expect(Proc.new{AMTD::Endpoints::Login.new(@adapter, params)}).to raise_error(AMTD::Errors::Endpoint::MissingParameter)
       end
     end

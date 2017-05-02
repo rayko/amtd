@@ -16,7 +16,7 @@ module AMTD
 
       private
       def required_params
-        [:source, :user_id, :password]
+        [:source, :userid, :password]
       end
 
       def handle_response data

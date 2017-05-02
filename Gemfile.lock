@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    amtd (0.0.0)
+    amtd (0.0.1)
       addressable
       httparty
       nokogiri

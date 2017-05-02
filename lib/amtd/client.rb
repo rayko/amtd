@@ -7,7 +7,7 @@ module AMTD
     end
 
     def login user_id, password
-      params = sanitize_params({:user_id => user_id, :password => password}.merge(source_param))
+      params = sanitize_params({:userid => user_id, :password => password}.merge(source_param))
       request = Endpoints::Login.new @adapter, params
       request.execute!
     end
