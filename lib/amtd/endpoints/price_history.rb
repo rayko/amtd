@@ -53,7 +53,8 @@ module AMTD
       end
 
       def handle_response data
-        @response = data
+        parser = AMTD::Parsers::PriceHistory.new(StringIO.new(data))
+        @response = parser.parse
         return @response
       end
 

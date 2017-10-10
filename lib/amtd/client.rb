@@ -6,17 +6,18 @@ module AMTD
       @user = options.delete(:user) || AMTD.config.user
       @source = options.delete(:source) || AMTD.config.source
       @password = options.delete(:password) || AMTD.config.password
-      validate_options!
       @adapter = Adapter.new
     end
 
     def login
+      validate_options!
       request = Endpoints::Login.new @adapter, {:userid => @user, :password => @password, :source => @source}
       request.execute!
     end
 
     def logout
       request = Endpoints::Logout.new @adapter, {:source => @source}
+      @session = nil
       request.execute!
     end
 
@@ -50,6 +51,7 @@ module AMTD
     # values can take depending on other values. While the optional parameters can be ommited, you need
     # to specify one set at least, either +start_date+ and +end_date+ or +period_type+ and +period+.
     def price_history params
+      raise ArgumentError, 'Missing source' if source.nil? || source == ''
       if session
         request = Endpoints::PriceHistory.new @adapter, params.merge({:session => session, :source => source})
       else

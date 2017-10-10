@@ -1,3 +1,8 @@
+require "httparty"
+require "nokogiri"
+require "nori"
+require "bindata"
+
 require "amtd/version"
 require "amtd/configuration"
 require "amtd/adapter"
@@ -12,9 +17,9 @@ require "amtd/endpoints/keep_alive"
 require "amtd/endpoints/streamer_info"
 require "amtd/endpoints/price_history"
 
-require "httparty"
-require "nokogiri"
-require "nori"
+require "amtd/parsers/price_history"
+require "amtd/parsers/price_history_header"
+require "amtd/parsers/price_history_datapoint"
 
 module AMTD
   class << self
