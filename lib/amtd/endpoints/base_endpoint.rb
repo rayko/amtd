@@ -22,7 +22,7 @@ module AMTD
           raise Errors::Endpoint::MissingParameter.new(key) if params[key] == '' || params[key].nil?
           valid_params[key] = params[key]
         end
-        optional_params.each{|k,v| valid_params[k] = v}
+        (optional_params & params.keys).each{|k| valid_params[k] = params[k]}
         return valid_params
       end
 

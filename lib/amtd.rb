@@ -10,6 +10,7 @@ require "amtd/endpoints/login"
 require "amtd/endpoints/logout"
 require "amtd/endpoints/keep_alive"
 require "amtd/endpoints/streamer_info"
+require "amtd/endpoints/price_history"
 
 require "httparty"
 require "nokogiri"

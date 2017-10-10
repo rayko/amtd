@@ -10,7 +10,8 @@ module AMTD
       end
       
       def execute!
-        result = @adapter.post :url => url, :headers => headers, :body => @request_parameters.merge({:version => version})
+        puts request_parameters.inspect
+        result = adapter.post :url => url, :headers => headers, :body => @request_parameters.merge({:version => version})
         handle_response(result)
       end
 
